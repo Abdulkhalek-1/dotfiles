@@ -1,0 +1,37 @@
+# --- Core Hyprland desktop (pacman) ---
+hyprland
+hyprlock
+hypridle
+hyprpaper
+hyprpolkitagent
+xdg-desktop-portal-hyprland
+# --- Terminal / shell / launcher ---
+ghostty
+starship
+wofi
+# --- System / laptop tools ---
+brightnessctl
+playerctl
+power-profiles-daemon
+networkmanager
+network-manager-applet
+bluez
+bluez-utils
+blueman
+# --- Clipboard / screenshots ---
+wl-clipboard
+flameshot
+grim
+slurp
+swappy
+# --- Fonts / theming ---
+ttf-jetbrains-mono-nerd
+catppuccin-cursors-mocha
+# --- Dotfile management / file manager ---
+stow
+nautilus
+
+# --- AUR (install with paru/yay) ---
+# hyprpanel-bin
+# clipse
+# wl-clip-persist
