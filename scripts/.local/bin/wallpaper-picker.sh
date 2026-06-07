@@ -7,7 +7,8 @@ choice="$(ls -1 "$DIR" | wofi --dmenu --prompt 'Wallpaper')"
 [ -z "${choice:-}" ] && exit 0
 img="$DIR/$choice"
 
-hyprctl hyprpaper preload "$img"
+# hyprpaper 0.8: `wallpaper` auto-loads the image; the separate IPC `preload`
+# subcommand is rejected ("invalid hyprpaper request"), so we don't call it.
 hyprctl hyprpaper wallpaper ",$img"
 
 # Persist for next login (this file is a stow symlink into the dotfiles repo)
