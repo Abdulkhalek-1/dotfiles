@@ -1,16 +1,21 @@
 #!/usr/bin/env bash
 # Clipboard history picker: cliphist backend + rofi, with image thumbnails.
 #
-# Image entries are decoded to cached thumbnails and shown as rofi icons;
-# text entries show as-is. Selecting an entry copies it back to the clipboard.
+# Image entries render as a thumbnail ONLY (no text label); text entries show
+# as text. Selection is by row index (rofi -format i) so image rows can have an
+# empty label while still mapping back to the right cliphist entry to decode.
 set -uo pipefail
 
 THUMB_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/cliphist/thumbs"
 THEME="$HOME/.config/rofi/clipboard.rasi"
 mkdir -p "$THUMB_DIR"
 
-build_list() {
-    cliphist list | while IFS= read -r line; do
+# Original cliphist lines (id<TAB>preview), index-aligned with the rofi rows.
+mapfile -t LINES < <(cliphist list)
+
+emit_rows() {
+    local line id preview thumb
+    for line in "${LINES[@]}"; do
         id=${line%%$'\t'*}
         preview=${line#*$'\t'}
         case $preview in
@@ -18,21 +23,22 @@ build_list() {
             *"binary data"*bmp*|*"binary data"*webp*|*"binary data"*gif*)
                 thumb="$THUMB_DIR/$id.png"
                 if [ ! -s "$thumb" ]; then
-                    cliphist decode <<<"$line" | magick - -resize 200x200 -strip "$thumb" 2>/dev/null
+                    cliphist decode <<<"$line" | magick - -resize 400x400 -strip "$thumb" 2>/dev/null
                 fi
                 if [ -s "$thumb" ]; then
-                    printf '%s\0icon\x1f%s\n' "$line" "$thumb"
+                    # empty label + icon -> thumbnail only (null byte goes straight to rofi)
+                    printf '\0icon\x1f%s\n' "$thumb"
                 else
-                    printf '%s\n' "$line"
+                    printf '%s\n' "$preview"
                 fi
                 ;;
             *)
-                printf '%s\n' "$line"
+                printf '%s\n' "$preview"
                 ;;
         esac
     done
 }
 
-selected=$(build_list | rofi -dmenu -i -show-icons -p 'Clipboard' -theme "$THEME") || exit 0
-[ -z "$selected" ] && exit 0
-cliphist decode <<<"$selected" | wl-copy
+idx=$(emit_rows | rofi -dmenu -i -show-icons -p 'Clipboard' -theme "$THEME" -format i) || exit 0
+[ -z "$idx" ] && exit 0
+cliphist decode <<<"${LINES[$idx]}" | wl-copy

@@ -50,7 +50,7 @@ entry {
 
 listview {
     columns:      1;
-    lines:        8;
+    lines:        6;
     scrollbar:    false;
     spacing:      4px;
     fixed-height: false;
@@ -58,13 +58,13 @@ listview {
 
 element {
     padding:       6px 8px;
-    spacing:       10px;
+    spacing:       12px;
     border-radius: 8px;
     children:      [ element-icon, element-text ];
 }
 
 element-icon {
-    size:             40px;
+    size:             96px;
     vertical-align:   0.5;
 }
 
