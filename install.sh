@@ -20,7 +20,7 @@ echo ">> Enabling services..."
 sudo systemctl enable --now NetworkManager bluetooth power-profiles-daemon
 
 echo ">> Stowing configs..."
-PACKAGES=(hyprland hyprlock hyprpaper ghostty wofi starship hyprpanel \
+PACKAGES=(hyprland hyprlock hyprpaper ghostty wofi p10k hyprpanel \
           cursor-clip scripts backgrounds nvim zshrc)
 for p in "${PACKAGES[@]}"; do
     if [ -d "$p" ]; then stow -R "$p" && echo "   stowed $p"

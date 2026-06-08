@@ -15,7 +15,7 @@ Catppuccin Mocha throughout. Managed with GNU Stow.
 | Screenshots | flameshot |
 | Lock / idle | hyprlock + hypridle |
 | Wallpaper | hyprpaper (+ wofi picker) |
-| Shell prompt | starship |
+| Shell | zsh + Powerlevel10k (oh-my-zsh + zinit) |
 | Font | JetBrainsMono Nerd Font |
 | Theme | Catppuccin Mocha |
 
@@ -38,7 +38,7 @@ into place (e.g. `stow ghostty` → `~/.config/ghostty/...`).
 
 ```
 hyprland/   hyprlock/   hyprpaper/   ghostty/   wofi/
-hyprpanel/  starship/   scripts/     backgrounds/  nvim/  zshrc/
+hyprpanel/  p10k/       scripts/     backgrounds/  nvim/  zshrc/  cursor-clip/
 ```
 
 The Hyprland config is split into focused, sourced files under
