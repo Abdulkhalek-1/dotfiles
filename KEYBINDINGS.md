@@ -27,6 +27,21 @@ The complete keymap for this Hyprland config.
 | `Super` + `P` | Pseudo-tile (dwindle) |
 | `Super` + `J` | Toggle split direction |
 
+### Window groups (tabbed windows)
+
+| Shortcut | Action |
+|---|---|
+| `Super` + `G` | Group / ungroup the active window |
+| `Super` + `Shift` + `G` | Pop active window out of its group |
+| `Super` + `Ctrl` + `G` | Lock group (stop auto-grouping) |
+| `Super` + `Tab` | Next tab in group |
+| `Super` + `Shift` + `Tab` | Previous tab in group |
+| `Super` + `Ctrl` + `H/J/K/L` | Pull adjacent window into the group |
+
+Grouped windows stack into a tabbed bar (styled Catppuccin Mocha). Typical flow:
+`Super`+`G` on a window, then `Super`+`Ctrl`+`L`/`H` to pull neighbors in;
+`Super`+`Tab` cycles the tabs.
+
 ### Move focus (Vim keys)
 
 | Shortcut | Action |
