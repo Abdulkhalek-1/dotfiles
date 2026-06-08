@@ -377,5 +377,71 @@
   "theme.bar.buttons.modules.microphone.icon_background": "#242438",
   "theme.font.name": "JetBrainsMono Nerd Font",
   "theme.font.size": "1rem",
-  "wallpaper.enable": false
+  "wallpaper.enable": false,
+  "theme.bar.scaling": 90,
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "kbinput",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "kbinput",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "*": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "kbinput",
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "bar.customModules.kbLayout.label": true,
+  "bar.customModules.kbLayout.labelType": "code",
+  "bar.customModules.kbLayout.pollingInterval": 1000
 }
