@@ -32,6 +32,6 @@ stow
 nautilus
 
 # --- AUR (install with paru/yay) ---
-# hyprpanel-bin
+# ags-hyprpanel-git   (the real feature-rich HyprPanel by Jas-SinghFSU; NOT hyprpanel-bin, which is a different minimal Go panel)
 # clipse
 # wl-clip-persist

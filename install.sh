@@ -8,7 +8,7 @@ mapfile -t PKGS < <(grep -vE '^\s*#|^\s*$' packages.txt | sed '/AUR/Q')
 sudo pacman -S --needed "${PKGS[@]}"
 
 echo ">> Installing AUR packages (needs paru or yay)..."
-AUR=(hyprpanel-bin clipse wl-clip-persist)
+AUR=(ags-hyprpanel-git clipse wl-clip-persist)
 if command -v paru >/dev/null;   then paru -S --needed "${AUR[@]}"
 elif command -v yay >/dev/null;  then yay  -S --needed "${AUR[@]}"
 else echo "!! No AUR helper found. Install paru/yay, then: paru -S ${AUR[*]}"; fi
@@ -18,7 +18,7 @@ sudo systemctl enable --now NetworkManager bluetooth power-profiles-daemon
 
 echo ">> Stowing configs..."
 PACKAGES=(hyprland hyprlock hyprpaper ghostty wofi starship hyprpanel \
-          scripts backgrounds nvim zshrc)
+          scripts backgrounds nvim zshrc clipse)
 for p in "${PACKAGES[@]}"; do
     if [ -d "$p" ]; then stow -R "$p" && echo "   stowed $p"
     else echo "   SKIP $p (no dir yet — e.g. hyprpanel config is captured after first run)"; fi
