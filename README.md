@@ -22,7 +22,7 @@ Catppuccin Mocha throughout. Managed with GNU Stow.
 ## Install (fresh Arch machine)
 
 ```bash
-git clone https://github.com/Abdulkhalek-1/dotfiles-1.git ~/dotfiles
+git clone https://github.com/Abdulkhalek-1/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
