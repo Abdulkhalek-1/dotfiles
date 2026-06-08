@@ -47,6 +47,9 @@ The Hyprland config is split into focused, sourced files under
 
 ## Key bindings (highlights)
 
+Full keymap (including clipboard overlay, function keys, and lid behavior):
+**[KEYBINDINGS.md](KEYBINDINGS.md)**.
+
 | Bind | Action |
 |---|---|
 | `Super`+`Return` | terminal (Ghostty) |
