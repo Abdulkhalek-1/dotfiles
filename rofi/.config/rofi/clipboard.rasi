@@ -1,0 +1,82 @@
+/* Catppuccin Mocha — clipboard picker theme (cliphist + rofi, with thumbnails) */
+* {
+    base:       #1e1e2e;
+    mantle:     #181825;
+    crust:      #11111b;
+    surface0:   #313244;
+    surface1:   #45475a;
+    text:       #cdd6f4;
+    subtext0:   #a6adc8;
+    mauve:      #cba6f7;
+    lavender:   #b4befe;
+    red:        #f38ba8;
+
+    background-color: transparent;
+    text-color:       @text;
+    font:             "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    background-color: @base;
+    border:           2px;
+    border-color:     @mauve;
+    border-radius:    12px;
+    width:            640px;
+    padding:          0;
+}
+
+mainbox {
+    padding:  12px;
+    spacing:  10px;
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    background-color: @mantle;
+    border-radius:    8px;
+    padding:          8px 12px;
+    spacing:          8px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @mauve;
+}
+
+entry {
+    placeholder:       "Search clipboard…";
+    placeholder-color: @subtext0;
+}
+
+listview {
+    columns:      1;
+    lines:        8;
+    scrollbar:    false;
+    spacing:      4px;
+    fixed-height: false;
+}
+
+element {
+    padding:       6px 8px;
+    spacing:       10px;
+    border-radius: 8px;
+    children:      [ element-icon, element-text ];
+}
+
+element-icon {
+    size:             40px;
+    vertical-align:   0.5;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element normal.normal {
+    text-color: @text;
+}
+
+element selected.normal {
+    background-color: @surface0;
+    text-color:       @mauve;
+}

@@ -20,6 +20,10 @@ bluez-utils
 blueman
 # --- Clipboard / screenshots ---
 wl-clipboard
+wl-clip-persist
+cliphist
+rofi
+imagemagick
 flameshot
 grim
 slurp
@@ -37,5 +41,3 @@ nautilus
 
 # --- AUR (install with paru/yay) ---
 # ags-hyprpanel-git   (the real feature-rich HyprPanel by Jas-SinghFSU; NOT hyprpanel-bin, which is a different minimal Go panel)
-# clipse
-# wl-clip-persist
