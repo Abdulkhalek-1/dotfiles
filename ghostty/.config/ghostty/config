@@ -1,16 +1,15 @@
 theme = Catppuccin Mocha
-# theme = GruvboxDark
-# font-family = Meslo LGS Nerd Font Mono
-# font-family = CaskaydiaMono Nerd Font
-# font-family = CaskaydiaCove Nerd Font
+font-family = JetBrainsMono Nerd Font
 font-size = 14
-# background-opacity = 0.95
+background-opacity = 0.95
 gtk-titlebar = false
-# custom-shader = /home/chris/bloom.glsl
-#custom-shader = /home/chris/crt.glsl
 
-# Slowdown mouse scrolling
+# Slow down mouse scrolling
 mouse-scroll-multiplier = 0.95
-
-# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+# Fix slowness on Hyprland (ghostty#3224)
 async-backend = epoll
+
+# Quality-of-life
+window-padding-x = 8
+window-padding-y = 8
+confirm-close-surface = false
