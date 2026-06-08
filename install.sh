@@ -20,7 +20,8 @@ echo ">> Stowing configs..."
 PACKAGES=(hyprland hyprlock hyprpaper ghostty wofi starship hyprpanel \
           scripts backgrounds nvim zshrc)
 for p in "${PACKAGES[@]}"; do
-    [ -d "$p" ] && stow -R "$p" && echo "   stowed $p"
+    if [ -d "$p" ]; then stow -R "$p" && echo "   stowed $p"
+    else echo "   SKIP $p (no dir yet — e.g. hyprpanel config is captured after first run)"; fi
 done
 
 echo ">> Done. Log into Hyprland and reload (Super+Shift+R)."

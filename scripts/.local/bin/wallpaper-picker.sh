@@ -3,7 +3,8 @@
 set -euo pipefail
 DIR="$HOME/.config/backgrounds"
 
-choice="$(ls -1 "$DIR" | wofi --dmenu --prompt 'Wallpaper')"
+# `|| exit 0` so cancelling wofi (Escape -> exit 1) ends cleanly under set -e.
+choice="$(ls -1 "$DIR" | wofi --dmenu --prompt 'Wallpaper')" || exit 0
 [ -z "${choice:-}" ] && exit 0
 img="$DIR/$choice"
 

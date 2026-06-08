@@ -2,9 +2,14 @@
 # Wofi power menu: lock / logout / suspend / reboot / shutdown.
 set -euo pipefail
 
-options="\
- Lock\n Logout\n Suspend\n Reboot\n Shutdown"
-choice="$(echo -e "$options" | wofi --dmenu --prompt 'Power' | awk '{print $2}')"
+options="Lock
+Logout
+Suspend
+Reboot
+Shutdown"
+
+# `|| exit 0` so cancelling wofi (Escape -> exit 1) ends cleanly under set -e.
+choice="$(printf '%s\n' "$options" | wofi --dmenu --prompt 'Power')" || exit 0
 
 case "$choice" in
     Lock)     hyprlock ;;
