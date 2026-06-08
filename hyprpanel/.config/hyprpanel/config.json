@@ -441,10 +441,11 @@
       ]
     }
   },
-  "bar.customModules.kbLayout.label": true,
+  "bar.customModules.kbLayout.label": false,
   "bar.customModules.kbLayout.labelType": "code",
   "bar.customModules.kbLayout.pollingInterval": 1000,
   "bar.customModules.kbLayout.leftClick": "hyprctl switchxkblayout current next",
   "bar.customModules.kbLayout.scrollUp": "hyprctl switchxkblayout current next",
-  "bar.customModules.kbLayout.scrollDown": "hyprctl switchxkblayout current next"
+  "bar.customModules.kbLayout.scrollDown": "hyprctl switchxkblayout current next",
+  "bar.customModules.kbLayout.icon": true
 }
