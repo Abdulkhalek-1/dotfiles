@@ -13,6 +13,9 @@ if command -v paru >/dev/null;   then paru -S --needed "${AUR[@]}"
 elif command -v yay >/dev/null;  then yay  -S --needed "${AUR[@]}"
 else echo "!! No AUR helper found. Install paru/yay, then: paru -S ${AUR[*]}"; fi
 
+echo ">> Installing brightnessctl shim (enforces a minimum backlight)..."
+sudo install -Dm755 bin/brightnessctl /usr/local/bin/brightnessctl
+
 echo ">> Enabling services..."
 sudo systemctl enable --now NetworkManager bluetooth power-profiles-daemon
 

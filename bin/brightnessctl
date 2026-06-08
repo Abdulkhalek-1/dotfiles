@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# brightnessctl shim — enforce a minimum SCREEN backlight so the HyprPanel
+# slider / brightness keys can never black out the display. Clamps the target
+# at the source (no watchdog daemon, no post-hoc dip), then delegates to the
+# real brightnessctl. Non-percentage ops and keyboard backlights pass straight
+# through. Lives in /usr/local/bin so it shadows /usr/bin/brightnessctl for
+# everything that resolves via PATH (HyprPanel, Hyprland keybinds, your shell).
+REAL=/usr/bin/brightnessctl
+MIN_PCT=5
+
+argv=("$@")
+op=""; vidx=-1; val=""; dev=""; is_kbd=0
+i=0
+while [ $i -lt ${#argv[@]} ]; do
+    case "${argv[$i]}" in
+        s|set)        op=set; vidx=$((i+1)); val="${argv[$vidx]}" ;;
+        -d|--device)  dev="${argv[$((i+1))]}"
+                      case "$dev" in *kbd*|*leds*|*::*) is_kbd=1 ;; esac ;;
+    esac
+    i=$((i+1))
+done
+
+# Only clamp screen-backlight percentage sets; pass everything else through.
+if [ "$op" = set ] && [ "$is_kbd" = 0 ] && [ -n "$val" ]; then
+    devargs=(); [ -n "$dev" ] && devargs=(-d "$dev")
+    cur=$("$REAL" "${devargs[@]}" -m 2>/dev/null | awk -F, 'NR==1{gsub("%","",$4); print $4+0}')
+    target=""
+    case "$val" in
+        *%-)      n=${val%\%-};            target=$(( cur - n )) ;;
+        +*%|*%+)  n=${val#+}; n=${n%\%+}; n=${n%\%}; target=$(( cur + n )) ;;
+        *%)       target=${val%\%} ;;
+    esac
+    if [ -n "$target" ] && [[ "$target" =~ ^-?[0-9]+$ ]]; then
+        (( target < MIN_PCT )) && target=$MIN_PCT
+        (( target > 100 ))     && target=100
+        argv[$vidx]="${target}%"
+        exec "$REAL" "${argv[@]}"
+    fi
+fi
+
+exec "$REAL" "$@"
