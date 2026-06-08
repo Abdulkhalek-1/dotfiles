@@ -24,6 +24,10 @@ flameshot
 grim
 slurp
 swappy
+# --- HyprPanel (AGS) build/runtime deps from the astal stack ---
+cava
+blueprint-compiler
+typescript
 # --- Fonts / theming ---
 ttf-jetbrains-mono-nerd
 catppuccin-cursors-mocha
