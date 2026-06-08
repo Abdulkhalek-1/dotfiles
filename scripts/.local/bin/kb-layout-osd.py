@@ -29,11 +29,11 @@ def short(name: str) -> str:
 
 
 def osd(name: str) -> None:
+    # SwayOSD: a centered OSD pill (like the volume/brightness OSD), not a
+    # corner notification. --custom-icon uses a Freedesktop icon name.
     subprocess.run(
-        ["notify-send", "-t", "1200", "-u", "low",
-         "-h", "string:x-canonical-private-synchronous:kblayout",
-         "-h", "string:synchronous:kblayout",
-         f"⌨  {name}"],
+        ["swayosd-client", "--custom-message", name,
+         "--custom-icon", "input-keyboard"],
         check=False,
     )
 

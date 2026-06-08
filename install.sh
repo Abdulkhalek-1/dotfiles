@@ -21,7 +21,7 @@ sudo systemctl enable --now NetworkManager bluetooth power-profiles-daemon
 
 echo ">> Stowing configs..."
 PACKAGES=(hyprland hyprlock hyprpaper ghostty wofi p10k hyprpanel \
-          cursor-clip scripts backgrounds nvim zshrc)
+          cursor-clip swayosd scripts backgrounds nvim zshrc)
 for p in "${PACKAGES[@]}"; do
     if [ -d "$p" ]; then stow -R "$p" && echo "   stowed $p"
     else echo "   SKIP $p (no dir yet — e.g. hyprpanel config is captured after first run)"; fi

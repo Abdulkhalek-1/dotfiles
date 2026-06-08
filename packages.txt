@@ -13,6 +13,7 @@ wofi
 brightnessctl
 playerctl
 power-profiles-daemon
+swayosd
 networkmanager
 network-manager-applet
 bluez
