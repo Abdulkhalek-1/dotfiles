@@ -1,0 +1,20 @@
+# Secrets / credentials — never commit
+*.env
+.env
+.env.*
+*.key
+*.pem
+*.p12
+id_rsa
+id_ed25519
+*.gpg
+.netrc
+.pgpass
+
+# Runtime / state that shouldn't be versioned
+*.log
+*history*.db
+*.sqlite
+*.sqlite3
+__pycache__/
+.DS_Store
