@@ -11,7 +11,7 @@ Catppuccin Mocha throughout. Managed with GNU Stow.
 | Terminal | Ghostty |
 | Launcher | wofi (with icons) |
 | Bar + controls + notifications | HyprPanel |
-| Clipboard (image thumbnails, persistent) | cliphist + rofi + wl-clip-persist |
+| Clipboard (native GUI, keyboard-first, image previews, persistent) | cursor-clip |
 | Screenshots | flameshot |
 | Lock / idle | hyprlock + hypridle |
 | Wallpaper | hyprpaper (+ wofi picker) |
@@ -52,7 +52,7 @@ The Hyprland config is split into focused, sourced files under
 | `Super`+`Return` | terminal (Ghostty) |
 | `Super`+`Space` | launcher (wofi) |
 | `Super`+`E` | file manager |
-| `Super`+`V` | clipboard history (cliphist + rofi, with thumbnails) |
+| `Super`+`V` | clipboard history (cursor-clip overlay) |
 | `Print` | screenshot region (flameshot) |
 | `Shift`+`Print` | full screenshot to clipboard |
 | `Super`+`L` | lock |
