@@ -18,7 +18,7 @@ sudo systemctl enable --now NetworkManager bluetooth power-profiles-daemon
 
 echo ">> Stowing configs..."
 PACKAGES=(hyprland hyprlock hyprpaper ghostty wofi starship hyprpanel \
-          scripts backgrounds nvim zshrc vscode)
+          scripts backgrounds nvim zshrc)
 for p in "${PACKAGES[@]}"; do
     [ -d "$p" ] && stow -R "$p" && echo "   stowed $p"
 done
