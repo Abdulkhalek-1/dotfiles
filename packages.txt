@@ -19,6 +19,7 @@ network-manager-applet
 bluez
 bluez-utils
 blueman
+kdeconnect
 # --- Clipboard / screenshots ---
 wl-clipboard
 flameshot
